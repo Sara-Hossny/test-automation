@@ -56,7 +56,6 @@ public class RegistrationPageTests {
     public void testEmptyFormSubmission() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.navigateToRegistrationPage();
-
         // Submit an empty form
         registrationPage.submitForm();
         // Check if the error message appears
