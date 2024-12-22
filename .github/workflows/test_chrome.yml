@@ -1,4 +1,4 @@
-name: bootstrap tests
+name: bootstrap chrome tests
 on: [workflow_dispatch]
 jobs:
   test:
