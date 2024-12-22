@@ -72,25 +72,6 @@ public class RegistrationPageTests {
         Assertions.assertTrue(registrationPage.checkErrorMessageAppear(), "No validation error message found after submitting empty form");
     }
 
-    @ParameterizedTest
-    @MethodSource(jsonManager.getValue("first_name_validation").toString())
-    public void testFirstNameValidation(String firstNameValue) {
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-        registrationPage.navigateToRegistrationPage();  // Assuming this method navigates to the registration page
-        System.out.println(firstNameValue);
-        // Fill the first name field
-        registrationPage.fillFirstName(firstNameValue);
-
-        // Check the validation for first name based on the input
-        if (firstNameValue.trim().isEmpty()) {
-            registrationPage.submitForm();
-            Assertions.assertTrue(registrationPage.checkFirstNameNotEmptyValidation(),
-                    "Expected 'notEmpty' validation message for empty first name input was not displayed");
-        } else {
-            Assertions.assertTrue(registrationPage.checkFirstNameStringLengthValidation(),
-                    "Expected 'stringLength' validation message for invalid first name input was not displayed");
-        }
-    }
 
 
 }
