@@ -1,0 +1,120 @@
+{
+  "success_submission": {
+    "first_name": "Oliver",
+    "last_name": "John",
+    "gender": "male",
+    "hobby_index": "Swimming",
+    "department_index": "Department of Engineering",
+    "user_name": "john oliver",
+    "user_password": "12356789",
+    "confirm_password": "12356789",
+    "email": "john.oliver1@abc.com",
+    "contact_no": "(415)8265412"
+  },
+  "first_name_validation": [
+    "",
+    "    ",
+     "J",
+     "JohnDoeJohnDoeJohnDoeJohnDoeJohnDoe"
+  ],
+  "last_name_validation": [
+    {"last_name": ""},
+    {"last_name": "    "},
+    {"last_name": "J"},
+    {"last_name": "JohnDoeJohnDoeJohnDoeJohnDoeJohnDoe"}
+  ],
+  "gender_empty_submission": {
+    "first_name": "Oliver",
+    "last_name": "John",
+    "hobby_index": 0,
+    "department_index": 1,
+    "user_name": "john oliver",
+    "user_password": "12356789",
+    "confirm_password": "12356789",
+    "email": "john.oliver1@abc.com",
+    "contact_no": "(415)8265412"
+  },
+  "department_empty_submission": {
+    "first_name": "Oliver",
+    "last_name": "John",
+    "gender": "male",
+    "hobby_index": 0,
+    "user_name": "john oliver",
+    "user_password": "12356789",
+    "confirm_password": "12356789",
+    "email": "john.oliver1@abc.com",
+    "contact_no": "(415)8265412"
+  },
+  "hobby_empty_submission": {
+    "first_name": "Oliver",
+    "last_name": "John",
+    "gender": "male",
+    "department_index": 1,
+    "user_name": "john oliver",
+    "user_password": "12356789",
+    "confirm_password": "12356789",
+    "email": "john.oliver1@abc.com",
+    "contact_no": "(415)8265412"
+  },
+  "username_validation": [
+    {"user_name": "", "expected_error": true},
+    {"user_name": "john", "expected_error": true},
+    {"user_name": "john_oliver_123456789012345", "expected_error": true},
+    {"user_name": "john_oliver", "expected_error": false}
+  ],
+  "password_validation": [
+    {
+      "password_value": "short",
+      "confirm_password": "short",
+      "expected_error": true
+    },
+    {
+      "password_value": "veryverylongpassword123456",
+      "confirm_password": "veryverylongpassword123456",
+      "expected_error": true
+    },
+    {
+      "password_value": "validPass1",
+      "confirm_password": "differentPass2",
+      "expected_error": true
+    },
+    {
+      "password_value": "validPass1",
+      "confirm_password": "validPass1",
+      "expected_error": false
+    }
+  ],
+  "email_validation": [
+    {"email": "", "expected_error": true},
+    {"email": "plainaddress", "expected_error": true},
+    {"email": "@missingusername.com", "expected_error": true},
+    {"email": "username@.com", "expected_error": true},
+    {"email": "username@domain.c", "expected_error": true},
+    {"email": "username@domain..com", "expected_error": true},
+    {"email": "username@domain.com", "expected_error": false},
+    {"email": "user.name@domain.co.uk", "expected_error": false},
+    {"email": "user_name@domain.com", "expected_error": false}
+  ],
+  "unique_email_test": {
+    "first_name": "Oliver",
+    "last_name": "John",
+    "gender": "male",
+    "hobby_index": 0,
+    "department_index": 1,
+    "user_name": "john oliver",
+    "user_password": "12356789",
+    "confirm_password": "12356789",
+    "email": "john.oliver@abc.com",
+    "contact_no": "(415)8265412"
+  },
+  "contact_number_validation": [
+    {"contact_number": "", "expected_error": true},
+    {"contact_number": "(415)82622935412", "expected_error": true},
+    {"contact_number": "(415)82654", "expected_error": true},
+    {"contact_number": "(415)82654as", "expected_error": true},
+    {"contact_number": "(415)8265412", "expected_error": false}
+  ],
+  "additional_info_test": {
+    "long_text": "This is a test string that is long enough to fill the textarea. This is a test string that is long enough to fill the textarea. This is a test string that is long enough to fill the textarea. This is a test string that is long enough to fill the textarea. This is a test string that is long enough to fill the textarea."
+  }
+}
