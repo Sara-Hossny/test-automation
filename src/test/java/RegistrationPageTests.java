@@ -59,7 +59,6 @@ public class RegistrationPageTests {
 
         // Submit an empty form
         registrationPage.submitForm();
-
         // Check if the error message appears
         Assertions.assertTrue(registrationPage.checkErrorMessageAppear(), "No validation error message found after submitting empty form");
     }
