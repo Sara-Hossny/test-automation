@@ -15,7 +15,7 @@ jobs:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
       - name: run tests
-        run: mvn test  -Dtest=RegistrationPageTests -Dbrowser="chrome" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+        run:  mvn test -Dtest=bootstrap.RegistrationPageTests -Dbrowser="chrome" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
         if: success() || failure() 
