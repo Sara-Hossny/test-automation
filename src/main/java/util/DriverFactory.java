@@ -19,6 +19,7 @@ public class DriverFactory {
         Map<String, Boolean> browserOptions = ConfigReader.getBrowserOptions();
         int implicitTime = ConfigReader.getImplicitTime();
 
+
         WebDriver driver;
 
         // Initialize options and apply common settings for each browser
