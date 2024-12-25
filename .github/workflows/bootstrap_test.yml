@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v4
         with: 
           distribution: 'zulu'
-          java-version: '21'  # Make sure this matches your pom.xml target version
+          java-version: '21'
           check-latest: true
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '21'  # Make sure this matches your pom.xml target version
+          java-version: '21'
           check-latest: true
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
@@ -58,13 +58,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '21'  # Make sure this matches your pom.xml target version
+          java-version: '21'
           check-latest: true
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
       - name: run tests
         continue-on-error: true 
-        run: mvn test -Dtest=${{github.event.inputs.testspath}}" -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+        run: mvn test -Dtest="${{github.event.inputs.testspath}}" -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
       - name: Publish Test Results
         uses: mikepenz/action-junit-report@v5.2.0
         if: success() || failure() 
@@ -79,17 +79,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '21'  # Make sure this matches your pom.xml target version
+          java-version: '21'
           check-latest: true
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
       - name: run tests
-        continue-on-error: true
-
-      - name: run tests
         continue-on-error: true 
-        run: mvn test -Dtest=${{github.event.inputs.testspath}}" -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
- 
+        run: mvn test -Dtest="${{github.event.inputs.testspath}}" -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
         if: success() || failure() 
