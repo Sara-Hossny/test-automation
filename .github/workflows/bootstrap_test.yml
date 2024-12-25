@@ -23,6 +23,13 @@ jobs:
       - name: run tests
         continue-on-error: true 
         run: mvn test -Dtest="${{github.event.inputs.testspath}}" -Dbrowser="chrome" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          check_name: results1
+          files: |
+            target/surefire-reports/TEST-*.xml
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
         if: success() || failure() 
@@ -42,11 +49,18 @@ jobs:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
       - name: run tests
-        continue-on-error: true
+        continue-on-error: true 
         run: mvn test -Dtest="${{github.event.inputs.testspath}}" -Dbrowser="chrome" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          check_name: results1
+          files: |
+            target/surefire-reports/TEST-*.xml
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
-        if: success() || failure()
+        if: success() || failure() 
         with:
           report_paths: 'target/surefire-reports/TEST-*.xml'
   firefox_ubuntu_test:
@@ -63,12 +77,18 @@ jobs:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.17.0
       - name: run tests
-        continue-on-error: true
-
+        continue-on-error: true 
         run: mvn test -Dtest=RegistrationPageTests -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          check_name: results1
+          files: |
+            target/surefire-reports/TEST-*.xml
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
-        if: success() || failure()
+        if: success() || failure() 
         with:
           report_paths: 'target/surefire-reports/TEST-*.xml'
   firefox_windows_test:
@@ -87,9 +107,18 @@ jobs:
       - name: run tests
         continue-on-error: true
 
+      - name: run tests
+        continue-on-error: true 
         run: mvn test -Dtest=RegistrationPageTests -Dbrowser="firefox" -Dimplicit_time=4 -Dbrowser_maximized="true" -Dbrowser_headless="true" -Dbrowser_incognito="false"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          check_name: results1
+          files: |
+            target/surefire-reports/TEST-*.xml
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v5.2.0
-        if: success() || failure()
+        if: success() || failure() 
         with:
           report_paths: 'target/surefire-reports/TEST-*.xml'
